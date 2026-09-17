@@ -63,4 +63,5 @@ jobs:
 
     # 9. 인프라 반영(Apply/Destroy) or main 브랜치에 푸시(merge)될 때만 실행
     - name: Terraform Apply & Destroy
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: terraform apply --auto-approve
